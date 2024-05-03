@@ -12,8 +12,10 @@ app.use(bodyParser.json());
 // Menentukan nama file output
 const outputFile = 'output/result.json';
 
-// Membuat file result.json jika belum ada
-fs.writeFileSync(outputFile, '[]');
+// Mengecek apakah file JSON sudah ada, jika tidak, maka membuat file baru dengan array kosong
+if (!fs.existsSync(outputFile)) {
+  fs.writeFileSync(outputFile, '[]');
+}
 
 // Endpoint untuk menerima POST request dari servera
 app.post('/save', (req, res) => {
