@@ -20,15 +20,17 @@ if (!fs.existsSync(outputFile)) {
 // Endpoint untuk menerima POST request dari servera
 app.post('/save', (req, res) => {
   // Lakukan sesuatu dengan data yang diterima, seperti menyimpan ke database
-  const { name, email, rhnid, Status, total, no1, no2, no3, no4, no5, no6, no7, no8, no9, no10, no11, no12, no13, no14, no15, no16, no17, no18, no19, no20, no21} = req.body;
+  const { name, email, Status, total, timestart, timefinish, duration, no1, no2, no3, no4, no5, no6, no7, no8, no9, no10, no11, no12, no13, no14, no15, no16, no17, no18, no19, no20} = req.body;
 
   // Simpan data ke dalam objek
   const dataToSave = {
     name,
     email,
-    rhnid,
     Status,
     total,
+    timestart,
+    timefinish,
+    duration,
     no1,
     no2,
     no3,
@@ -49,7 +51,6 @@ app.post('/save', (req, res) => {
     no18,
     no19,
     no20,
-    no21,
     timestamp: new Date().toISOString()
   };
 
